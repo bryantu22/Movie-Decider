@@ -36,7 +36,7 @@ class MovieRow extends React.Component {
         <div
           style={{
             display: "inline-block",
-            width: "90%",
+            width: "95%",
             marginBottom: "10px",
             verticalAlign: "top"
           }}
