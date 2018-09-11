@@ -27,12 +27,12 @@ class MovieRow extends React.Component {
   render() {
     return (
       <div>
-        <img
+        {/* <img
           alt="poster"
           width="10%"
           src={this.props.movie.poster_src}
           style={{ display: "inline-block" }}
-        />
+        /> */}
         <div
           style={{
             display: "inline-block",
@@ -42,9 +42,9 @@ class MovieRow extends React.Component {
           }}
         >
           <h3>{this.props.movie.title}</h3>
-          <p>{this.props.movie.overview}</p>
-          <button onClick={this.viewMovie}>Click Me</button>
-          <button onClick={this.viewActors}>View Actors</button>
+          {/* <p>{this.props.movie.overview}</p> */}
+          {/* <button onClick={this.viewMovie}>Click Me</button>
+          <button onClick={this.viewActors}>View Actors</button> */}
         </div>
       </div>
     );

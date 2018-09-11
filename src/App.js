@@ -6,7 +6,7 @@ import MovieRow from "./MovieRow.js";
 class App extends Component {
   constructor() {
     super();
-    this.state = { rows: "" };
+    this.state = { rows: [] };
   }
 
   handleSearch(e) {
@@ -17,12 +17,13 @@ class App extends Component {
       )
       .then(response => {
         var movieRows = [];
-
-        response.data.results.forEach((movie, i) => {
-          movie.poster_src =
-            "https://image.tmdb.org/t/p/w185" + movie.poster_path;
-          const movieRow = <MovieRow key={i} movie={movie} />;
-          movieRows.push(movieRow);
+        var counter = 0;
+        response.data.results.forEach(movie => {
+          // movie.poster_src =
+          //   "https://image.tmdb.org/t/p/w185" + movie.poster_path;
+          const movieRow = <MovieRow key={movie.id} movie={movie} />;
+          if (counter < 5) movieRows.push(movieRow);
+          counter++;
         });
 
         this.setState({ rows: movieRows });
@@ -35,9 +36,9 @@ class App extends Component {
         <input
           style={{ width: "100%" }}
           onChange={e => this.handleSearch(e)}
-          placeholder="Search a movie"
+          placeholder="Search for a movie"
         />
-        {this.state.rows}
+        <div style={{ height: "50px" }}>{this.state.rows}</div>
       </div>
     );
   }
