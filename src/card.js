@@ -51,8 +51,9 @@ class card extends React.Component {
               <p>Length</p>
               <span>{runtime} minutes</span>
             </div>
-            <div className="movie-stats-box">
-              <p>Vote average</p>
+
+            <div className="stats">
+              <p>Length</p>
               <span>{vote_average} /10</span>
             </div>
           </div>
