@@ -8,7 +8,7 @@ class Movie extends React.Component {
   constructor(props) {
     super();
 
-    this.state = { similar: true, data: "", open: false };
+    this.state = { similar: true, data: "", open: false, array: [] };
   }
 
   onOpenModal = () => {
@@ -42,7 +42,7 @@ class Movie extends React.Component {
       .get(
         "https://api.themoviedb.org/3/movie/" +
           this.props.movie.id +
-          "/similar?&api_key=cfe422613b250f702980a3bbf9e90716"
+          "/recommendations?&api_key=cfe422613b250f702980a3bbf9e90716"
       )
       .then(response => {
         if (response.data.results.length === 0) {
@@ -50,6 +50,7 @@ class Movie extends React.Component {
           this.onOpenModal();
           return;
         }
+        var array = response.data.results;
         ID = response.data.results[0].id;
         axios
           .get(
@@ -58,7 +59,7 @@ class Movie extends React.Component {
               "?api_key=886cbad81f9f93405487e46a949d9eec"
           )
           .then(response => {
-            this.setState({ data: response.data });
+            this.setState({ data: response.data, array: array });
             this.onOpenModal();
           });
       });
@@ -81,7 +82,11 @@ class Movie extends React.Component {
         </div>
         <div>
           <Modal open={this.state.open} onClose={this.onCloseModal}>
-            {this.state.similar ? <Card data={this.state.data} /> : <Error />}
+            {this.state.similar ? (
+              <Card data={this.state.data} array={this.state.array} />
+            ) : (
+              <Error />
+            )}
           </Modal>
         </div>
       </div>

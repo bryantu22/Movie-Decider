@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Nav from "./nav.js";
 import Search from "./search.js";
+import Info from "./info.js";
 
 class App extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class App extends Component {
       <div>
         <Nav />
         <Search />
+        <Info />
       </div>
     );
   }

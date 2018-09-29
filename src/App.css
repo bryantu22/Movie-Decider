@@ -84,3 +84,12 @@
   display: inline-block;
   margin-right: 10px;
 }
+
+.info-container {
+  margin-top: 10px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}

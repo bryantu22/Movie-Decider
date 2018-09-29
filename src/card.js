@@ -1,9 +1,30 @@
 import React from "react";
+import axios from "axios";
 
 class card extends React.Component {
   constructor(props) {
-    super();
+    super(props);
+
+    this.state = { counter: 1, data: this.props.data, array: this.props.array };
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.inputValue !== this.props.inputValue) {
+      this.setState({ data: nextProps.data });
+    }
+  }
+
+  next = () => {
+    axios
+      .get(
+        "https://api.themoviedb.org/3/movie/" +
+          this.props.array[this.state.counter].id +
+          "?api_key=886cbad81f9f93405487e46a949d9eec"
+      )
+      .then(response => {
+        this.setState({ data: response.data, counter: this.state.counter + 1 });
+      });
+  };
 
   render() {
     const {
@@ -17,7 +38,8 @@ class card extends React.Component {
       // production_companies,
       // genres,
       poster_path
-    } = this.props.data;
+    } = this.state.data;
+
     // const genre = genres
     //   ? genres.map((genre, i) => {
     //       return (
@@ -39,6 +61,7 @@ class card extends React.Component {
     //   : "";
 
     const poster = "https://image.tmdb.org/t/p/w185" + poster_path;
+
     return (
       <div>
         <img className="card-img" alt="poster" src={poster} />
@@ -55,6 +78,11 @@ class card extends React.Component {
             <div className="stats">
               <p>Voting Average</p>
               <span>{vote_average} /10</span>
+            </div>
+            <div className="stats">
+              <button onClick={this.next}>
+                Next suggestion <span className="fa fa-arrow-circle-right" />
+              </button>
             </div>
           </div>
         </div>
