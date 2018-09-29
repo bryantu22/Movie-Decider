@@ -51,3 +51,36 @@
   width: 30%;
   margin-right: 20px;
 }
+
+.movie-stats-box {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stats {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.releasedate {
+  border-bottom: solid 1px #dce6f7;
+}
+
+.info-box {
+  width: 60%;
+  display: inline-block;
+}
+
+.error-box {
+  margin: 30px;
+}
+
+.movie-row {
+  display: inline-block;
+}
+
+.movie-content {
+  display: inline-block;
+  margin-right: 10px;
+}

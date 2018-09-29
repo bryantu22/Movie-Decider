@@ -6,9 +6,7 @@ class Erorr extends Component {
   }
 
   render() {
-    return (
-      <div style={{ margin: "30px" }}>No similar movie could be found</div>
-    );
+    return <div className="error-box">No similar movie could be found</div>;
   }
 }
 

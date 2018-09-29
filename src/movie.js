@@ -66,13 +66,8 @@ class Movie extends React.Component {
 
   render() {
     return (
-      <div style={{ display: "inline-block" }}>
-        <div
-          style={{
-            display: "inline-block",
-            marginRight: "10px"
-          }}
-        >
+      <div className="movie-row">
+        <div className="movie-content">
           <img
             alt="poster"
             src={this.props.movie.poster_src}

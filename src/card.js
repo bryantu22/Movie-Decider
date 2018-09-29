@@ -42,32 +42,16 @@ class card extends React.Component {
     return (
       <div>
         <img className="card-img" alt="poster" src={poster} />
-        <div style={{ width: "60%", display: "inline-block" }}>
+        <div className="info-box">
           <h1>{original_title}</h1>
-          <p style={{ borderBottom: "solid 1px #dce6f7" }}>{release_date}</p>
+          <p className="releasedate">{release_date}</p>
           <p>{overview}</p>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-around",
-              textAlign: "center"
-            }}
-          >
-            <div
-              style={{
-                display: "inline-block",
-                marginRight: "10px"
-              }}
-            >
+          <div className="movie-stats-box">
+            <div className="stats">
               <p>Length</p>
               <span>{runtime} minutes</span>
             </div>
-            <div
-              style={{
-                display: "inline-block",
-                marginRight: "10px"
-              }}
-            >
+            <div className="movie-stats-box">
               <p>Vote average</p>
               <span>{vote_average} /10</span>
             </div>
