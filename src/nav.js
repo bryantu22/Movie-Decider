@@ -10,7 +10,7 @@ class Nav extends Component {
   render() {
     return (
       <div className="nav">
-        <img className="nav-img" alt="poster" src={video} height="44" />
+        <img className="nav-img" alt="poster" src={video} height="45" />
         <span className="nav-span">Movie Decider</span>
       </div>
     );
