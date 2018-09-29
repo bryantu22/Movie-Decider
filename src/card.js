@@ -39,31 +39,48 @@ class card extends React.Component {
       : "";
     const poster = "https://image.tmdb.org/t/p/w185" + poster_path;
     return (
-      <div style={{ marginTop: "20px" }}>
+      <div>
         <img
+          alt="poster"
           src={poster}
           style={{
-            width: "20%",
+            height: "100%",
             display: "inline-block",
             verticalAlign: "top",
-            maxHeight: "290px",
-            maxWidth: "200px",
+            width: "30%",
             marginRight: "20px"
           }}
         />
-        <div style={{ width: "70%", display: "inline-block" }}>
+        <div style={{ width: "60%", display: "inline-block" }}>
           <h1>{original_title}</h1>
-          <p>{tagline}</p>
+          <p style={{ borderBottom: "solid 1px #dce6f7" }}>{release_date}</p>
           <p>{overview}</p>
-          <p>{genre}</p>
-          <p>{companies}</p>
-          <p>{release_date}</p>
-          <p>
-            Running Time:
-            {runtime} mins
-          </p>
-          <p>{totalRevenue}</p>
-          <p>{vote_average} /10</p>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-around",
+              textAlign: "center"
+            }}
+          >
+            <div
+              style={{
+                display: "inline-block",
+                marginRight: "10px"
+              }}
+            >
+              <p>Length</p>
+              <span>{runtime} minutes</span>
+            </div>
+            <div
+              style={{
+                display: "inline-block",
+                marginRight: "10px"
+              }}
+            >
+              <p>Vote average</p>
+              <span>{vote_average} /10</span>
+            </div>
+          </div>
         </div>
       </div>
     );
