@@ -7,6 +7,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = { rows: [] };
+
+    this.handleSearch({ target: { value: "Django" } });
   }
 
   handleSearch(e) {
@@ -34,7 +36,12 @@ class App extends Component {
     return (
       <div>
         <input
-          style={{ width: "100%", height: "30px", fontSize: "1em", marginBottom: '10px' }}
+          style={{
+            width: "100%",
+            height: "30px",
+            fontSize: "1em",
+            marginBottom: "10px"
+          }}
           onChange={e => this.handleSearch(e)}
           placeholder="Search movie"
         />
