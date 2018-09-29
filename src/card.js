@@ -41,6 +41,7 @@ class card extends React.Component {
     return (
       <div style={{ marginTop: "20px" }}>
         <img
+          alt="poster"
           src={poster}
           style={{
             width: "20%",
