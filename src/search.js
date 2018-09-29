@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
-import MovieRow from "./MovieRow.js";
+import Movie from "./movie.js";
 
 class Search extends Component {
   constructor() {
@@ -23,8 +23,9 @@ class Search extends Component {
         response.data.results.forEach(movie => {
           movie.poster_src =
             "https://image.tmdb.org/t/p/w185" + movie.poster_path;
-          const movieRow = <MovieRow key={movie.id} movie={movie} />;
-          if (counter < 5) movieRows.push(movieRow);
+          const movieRow = <Movie key={movie.id} movie={movie} />;
+          if (counter < 10 && movie.poster_path != null)
+            movieRows.push(movieRow);
           counter++;
         });
 
@@ -40,40 +41,45 @@ class Search extends Component {
           <p className="info">A simplistic movie recommender</p>
           <div className="searchBox">
             <input
-              className="searchBar fa"
+              className="searchBar"
               onChange={e => this.handleSearch(e)}
               placeholder="Search for a movie..."
             />
             <span
               className="fa fa-search"
-              style={{ display: "inline-block", verticalAlign: "middle" }}
+              style={{
+                verticalAlign: "top",
+                marginTop: "14px",
+                marginLeft: "10px",
+                display: "inline-block"
+              }}
             />
           </div>
         </div>
-        <div class="modal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+        <div className="modal" tabIndex="-1" role="dialog">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Modal title</h5>
                 <button
                   type="button"
-                  class="close"
+                  className="close"
                   data-dismiss="modal"
                   aria-label="Close"
                 >
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 <p>Modal body text goes here.</p>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary">
+              <div className="modal-footer">
+                <button type="button" className="btn btn-primary">
                   Save changes
                 </button>
                 <button
                   type="button"
-                  class="btn btn-secondary"
+                  className="btn btn-secondary"
                   data-dismiss="modal"
                 >
                   Close
@@ -84,7 +90,16 @@ class Search extends Component {
         </div>
 
         <div style={{ display: "flex", justifyContent: "space-around" }}>
-          {this.state.rows}
+          <div
+            style={{
+              overflowX: "scroll",
+              overflowY: "hidden",
+              whiteSpace: "nowrap",
+              width: "100%"
+            }}
+          >
+            {this.state.rows.length > 0 ? this.state.rows : "No results"}
+          </div>
         </div>
       </div>
     );

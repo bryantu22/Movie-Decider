@@ -2,16 +2,16 @@ import React from "react";
 import axios from "axios";
 import Card from "./card.js";
 import Modal from "react-responsive-modal";
+import Error from "./error.js";
 
-class MovieRow extends React.Component {
+class Movie extends React.Component {
   constructor(props) {
     super();
 
-    this.state = { showCard: false, data: "", open: false };
+    this.state = { similar: true, data: "", open: false };
   }
 
   onOpenModal = () => {
-    this.changeCard();
     this.setState({ open: true });
   };
 
@@ -37,7 +37,6 @@ class MovieRow extends React.Component {
   };
 
   changeCard = () => {
-    this.setState({ showCard: !this.state.showCard });
     var ID = "";
     axios
       .get(
@@ -47,7 +46,8 @@ class MovieRow extends React.Component {
       )
       .then(response => {
         if (response.data.results.length === 0) {
-          this.setState({ showCard: !this.state.showCard });
+          this.setState({ similar: false });
+          this.onOpenModal();
           return;
         }
         ID = response.data.results[0].id;
@@ -59,17 +59,14 @@ class MovieRow extends React.Component {
           )
           .then(response => {
             this.setState({ data: response.data });
+            this.onOpenModal();
           });
       });
   };
 
   render() {
     return (
-      <div>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
+      <div style={{ display: "inline-block" }}>
         <div
           style={{
             display: "inline-block",
@@ -79,7 +76,7 @@ class MovieRow extends React.Component {
           <img
             alt="poster"
             src={this.props.movie.poster_src}
-            onClick={this.onOpenModal}
+            onClick={this.changeCard}
           />
           <div>
             {/*<button onClick={this.viewMovie}>Click Me</button>*/}
@@ -89,16 +86,12 @@ class MovieRow extends React.Component {
         </div>
         <div>
           <Modal open={this.state.open} onClose={this.onCloseModal}>
-            <Card data={this.state.data} />
+            {this.state.similar ? <Card data={this.state.data} /> : <Error />}
           </Modal>
-<<<<<<< HEAD
-
-=======
->>>>>>> master
         </div>
       </div>
     );
   }
 }
 
-export default MovieRow;
+export default Movie;
