@@ -57,12 +57,7 @@ class MovieRow extends React.Component {
   render() {
     return (
       <div>
-<<<<<<< HEAD
         <img
-=======
-         <img
-          alt="poster"
->>>>>>> master
           width="10%"
           src={this.props.movie.poster_src}
           style={{ display: "inline-block" }}
@@ -73,7 +68,6 @@ class MovieRow extends React.Component {
             width: "80%",
             marginBottom: "10px",
             verticalAlign: "top",
-<<<<<<< HEAD
             paddingLeft: "2%"
           }}
         >
@@ -82,15 +76,6 @@ class MovieRow extends React.Component {
           {/*<button onClick={this.viewMovie}>Click Me</button>*/}
           <button onClick={this.viewActors}>View Actors</button>
           <button onClick={this.changeCard}>View Recommendation</button>
-=======
-            paddingLeft: '2%'
-          }}
-        >
-          <h3>{this.props.movie.title}</h3>
-           <p>{this.props.movie.overview}</p>
-           {/*<button onClick={this.viewMovie}>Click Me</button>*/}
-          <button onClick={this.viewActors}>View Actors</button>
->>>>>>> master
         </div>
         {this.state.showCard ? <Card data={this.state.data} /> : ""}
       </div>
