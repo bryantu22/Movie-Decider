@@ -53,7 +53,7 @@ class card extends React.Component {
             </div>
 
             <div className="stats">
-              <p>Length</p>
+              <p>Voting Average</p>
               <span>{vote_average} /10</span>
             </div>
           </div>
