@@ -187,3 +187,22 @@
 .styles_closeIcon__1QwbI {
   fill: white;
 }
+
+.rows-of-movie {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.search-logo {
+  vertical-align: top;
+  margin-top: 14px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.row-container {
+  display: flex;
+  justify-content: space-around;
+}

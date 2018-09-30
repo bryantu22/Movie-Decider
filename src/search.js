@@ -45,59 +45,12 @@ class Search extends Component {
               onChange={e => this.handleSearch(e)}
               placeholder="Search for a movie..."
             />
-            <span
-              className="fa fa-search"
-              style={{
-                verticalAlign: "top",
-                marginTop: "14px",
-                marginLeft: "10px",
-                display: "inline-block"
-              }}
-            />
-          </div>
-        </div>
-        <div className="modal" tabIndex="-1" role="dialog">
-          <div className="modal-dialog" role="document">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h5 className="modal-title">Modal title</h5>
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <p>Modal body text goes here.</p>
-              </div>
-              <div className="modal-footer">
-                <button type="button" className="btn btn-primary">
-                  Save changes
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-secondary"
-                  data-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
+            <span className="fa fa-search" className="search-logo" />
           </div>
         </div>
 
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
-          <div
-            style={{
-              overflowX: "scroll",
-              overflowY: "hidden",
-              whiteSpace: "nowrap",
-              width: "100%"
-            }}
-          >
+        <div className="row-container">
+          <div className="rows-of-movie">
             {this.state.rows.length > 0 ? this.state.rows : "No results"}
           </div>
         </div>
