@@ -11,9 +11,8 @@ class Info extends Component {
     return (
       <div className="info-container">
         <p>1. Search for a movie </p>
-        <p>2. Select a movie from the list </p>
-        <p>3. View recommended Movie </p>
-        <p>4. Click "View Next" to see next recommended movie </p>
+        <p>2. Select a movie you want to see recomendation pop up </p>
+        <p>4. Click "View Next" to see next recommendation </p>
       </div>
     );
   }
