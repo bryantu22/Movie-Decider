@@ -29,26 +29,27 @@ class card extends React.Component {
   render() {
     const {
       original_title,
-      // tagline,
+      tagline,
       overview,
       release_date,
-      runtime,
+      // runtime,
       // totalRevenue,
-      vote_average,
+      // vote_average,
       // production_companies,
-      // genres,
-      poster_path
+      genres,
+      poster_path,
+      backdrop_path
     } = this.state.data;
 
-    // const genre = genres
-    //   ? genres.map((genre, i) => {
-    //       return (
-    //         <span className="genre-list" key={i}>
-    //           {genre.name}
-    //         </span>
-    //       );
-    //     })
-    //   : "";
+    const genre = genres
+      ? genres.map((genre, i) => {
+          return (
+            <span className="genre-list" key={i}>
+              {genre.name}, &nbsp;
+            </span>
+          );
+        })
+      : "";
 
     // const companies = genres
     //   ? production_companies.map((company, i) => {
@@ -61,30 +62,32 @@ class card extends React.Component {
     //   : "";
 
     const poster = "https://image.tmdb.org/t/p/w185" + poster_path;
+    const bg = "url(https://image.tmdb.org/t/p/w185" + backdrop_path + ")";
 
     return (
-      <div>
-        <img className="card-img" alt="poster" src={poster} />
-        <div className="info-box">
-          <h1>{original_title}</h1>
-          <p className="releasedate">{release_date}</p>
-          <p>{overview}</p>
-          <div className="movie-stats-box">
-            <div className="stats">
-              <p>Length</p>
-              <span>{runtime} minutes</span>
-            </div>
-
-            <div className="stats">
-              <p>Voting Average</p>
-              <span>{vote_average} /10</span>
-            </div>
-            <div className="stats">
-              <button onClick={this.next}>
-                Next suggestion <span className="fa fa-arrow-circle-right" />
-              </button>
-            </div>
+      <div className="test-container">
+        <div
+          className="test"
+          style={{
+            backgroundImage: bg
+          }}
+        >
+          <img className="card-img" alt="poster" src={poster} />
+          <div className="movie-stuff">
+            <h1 className="card-title">{original_title}</h1>
+            <span className="tagline">{tagline}</span>
           </div>
+        </div>
+        <div className="movie-info-box">
+          <h1 className="sub-title">OVERVIEW </h1>
+          <p className="overview">{overview}</p>
+          <h1 className="sub-title">GENRES </h1>
+          <span className="small-info genres">{genre}</span>
+          <h1 className="sub-title">RELEASE DATE </h1>
+          <span className="small-info">{release_date}</span>
+          <button className="next-button" onClick={this.next}>
+            Next suggestion <span className="fa fa-arrow-circle-right" />
+          </button>
         </div>
       </div>
     );
