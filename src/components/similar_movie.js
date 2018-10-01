@@ -1,17 +1,11 @@
 import React from "react";
 import axios from "axios";
 
-class card extends React.Component {
+class SimilarMovie extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = { counter: 1, data: this.props.data, array: this.props.array };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.inputValue !== this.props.inputValue) {
-      this.setState({ data: nextProps.data });
-    }
   }
 
   next = () => {
@@ -94,4 +88,4 @@ class card extends React.Component {
   }
 }
 
-export default card;
+export default SimilarMovie;

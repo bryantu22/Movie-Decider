@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import Card from "./card.js";
+import SimilarMovie from "./similar_movie.js";
 import Modal from "react-responsive-modal";
 import Error from "./error.js";
 
@@ -83,7 +83,7 @@ class Movie extends React.Component {
         <div>
           <Modal open={this.state.open} onClose={this.onCloseModal}>
             {this.state.similar ? (
-              <Card data={this.state.data} array={this.state.array} />
+              <SimilarMovie data={this.state.data} array={this.state.array} />
             ) : (
               <Error />
             )}

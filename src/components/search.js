@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import axios from "axios";
 import Movie from "./movie.js";
 
@@ -45,7 +44,7 @@ class Search extends Component {
               onChange={e => this.handleSearch(e)}
               placeholder="Search for a movie..."
             />
-            <span className="fa fa-search" className="search-logo" />
+            <span className="fa fa-search search-logo" />
           </div>
         </div>
 

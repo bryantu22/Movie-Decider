@@ -1,15 +1,10 @@
 import React, { Component } from "react";
+import Search from "./components/search.js";
+import Info from "./components/info.js";
+import Nav from "./components/nav.js";
 import "./App.css";
-import Nav from "./nav.js";
-import Search from "./search.js";
-import Info from "./info.js";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
     return (
       <div>
