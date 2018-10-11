@@ -9,9 +9,10 @@ class Info extends Component {
   render() {
     return (
       <div className="info-container">
-        <p>1. Search for a movie </p>
-        <p>2. Select a movie you want to see recomendation pop up </p>
-        <p>4. Click "View Next" to see next recommendation </p>
+        <h1>Select a movie to see a recommendation!</h1>
+        <p>Some movies are missing information or a recommendation</p>
+        <p>Being over the age of 18 is recommended</p>
+        <p>Logo made by Freepik from www.flaticon.com</p>
       </div>
     );
   }

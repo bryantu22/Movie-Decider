@@ -23,7 +23,7 @@ class Search extends Component {
           movie.poster_src =
             "https://image.tmdb.org/t/p/w185" + movie.poster_path;
           const movieRow = <Movie key={movie.id} movie={movie} />;
-          if (counter < 10 && movie.poster_path != null)
+          if (counter < 15 && movie.poster_path != null)
             movieRows.push(movieRow);
           counter++;
         });
@@ -47,7 +47,6 @@ class Search extends Component {
             <span className="fa fa-search search-logo" />
           </div>
         </div>
-
         <div className="row-container">
           <div className="rows-of-movie">
             {this.state.rows.length > 0 ? this.state.rows : "No results"}
