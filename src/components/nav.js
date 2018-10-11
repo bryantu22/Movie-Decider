@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import video from "../images/video-camera.png";
+import video from "../images/a.png";
 
 class Nav extends Component {
   constructor() {
