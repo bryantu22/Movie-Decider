@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 
+//Info component is the information displayed at the bottom, and it's mainly just text formatted
 class Info extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
     return (
       <div className="info-container">
