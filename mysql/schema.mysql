@@ -1,0 +1,64 @@
+CREATE TABLE movies (
+	movie_id INTEGER NOT NULL AUTO_INCREMENT,
+	movie_name VARCHAR(255),
+	movie_year SMALLINT,
+	PRIMARY KEY(movie_id)
+);
+
+CREATE TABLE sets (
+	set_id INTEGER NOT NULL AUTO_INCREMENT,
+	all_movie_ids VARCHAR(255),
+	PRIMARY KEY(set_id)
+);
+
+CREATE TABLE actors (
+	actor_id INTEGER NOT NULL AUTO_INCREMENT,
+	movie_id INTEGER NOT NULL,
+	actor_f_name VARCHAR(255),
+	actor_l_name VARCHAR(255),
+	deg_1_ids VARCHAR(255),
+        deg_2_ids VARCHAR(255),
+        deg_3_ids VARCHAR(255),
+        deg_4_ids VARCHAR(255),
+        deg_5_ids VARCHAR(255),
+        deg_6_ids VARCHAR(255),
+	PRIMARY KEY(actor_id),
+	FOREIGN KEY(movie_id) REFERENCES movies(movie_id)
+);
+
+CREATE TABLE cardinality (
+	card_id INTEGER NOT NULL AUTO_INCREMENT,
+	actor_id INTEGER NOT NULL,
+	set_id INTEGER NOT NULL,
+	card_val SMALLINT DEFAULT 0,
+	PRIMARY KEY(card_id),
+	FOREIGN KEY(actor_id) REFERENCES actors(actor_id),
+	FOREIGN KEY(set_id) REFERENCES sets(set_id)
+);
+
+CREATE TABLE suggest (
+	suggestion_id INTEGER NOT NULL AUTO_INCREMENT,
+	s_mov_id INTEGER NOT NULL,
+	suggested_mov VARCHAR(255),
+	init_search INTEGER NOT NULL,
+	PRIMARY KEY(suggestion_id),
+	FOREIGN KEY(s_mov_id) REFERENCES movies(movie_id),
+	FOREIGN KEY(init_search) REFERENCES movies(movie_id)
+);
+
+CREATE TABLE users (
+	user_id INTEGER NOT NULL AUTO_INCREMENT,
+	user_login VARCHAR(255),
+	user_pass VARCHAR(255),
+	PRIMARY KEY(user_id)
+);
+
+CREATE TABLE prev_suggest (
+	user_id INTEGER NOT NULL,
+	suggestion_id INTEGER NOT NULL,
+	rank SMALLINT DEFAULT 0,
+	FOREIGN KEY(user_id) REFERENCES users(user_id),
+	FOREIGN KEY(suggestion_id) REFERENCES suggest(suggestion_id)
+);
+
+

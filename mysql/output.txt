@@ -1,0 +1,44 @@
+Tables_in_movie_decider
+actors
+cardinality
+movies
+prev_suggest
+sets
+suggest
+users
+Field	Type	Null	Key	Default	Extra
+actor_id	int(11)	NO	PRI	NULL	auto_increment
+movie_id	int(11)	NO	MUL	NULL	
+actor_f_name	varchar(255)	YES		NULL	
+actor_l_name	varchar(255)	YES		NULL	
+deg_1_ids	varchar(255)	YES		NULL	
+deg_2_ids	varchar(255)	YES		NULL	
+deg_3_ids	varchar(255)	YES		NULL	
+deg_4_ids	varchar(255)	YES		NULL	
+deg_5_ids	varchar(255)	YES		NULL	
+deg_6_ids	varchar(255)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+card_id	int(11)	NO	PRI	NULL	auto_increment
+actor_id	int(11)	NO	MUL	NULL	
+set_id	int(11)	NO	MUL	NULL	
+card_val	smallint(6)	YES		0	
+Field	Type	Null	Key	Default	Extra
+movie_id	int(11)	NO	PRI	NULL	auto_increment
+movie_name	varchar(255)	YES		NULL	
+movie_year	smallint(6)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+user_id	int(11)	NO	MUL	NULL	
+suggestion_id	int(11)	NO	MUL	NULL	
+rank	smallint(6)	YES		0	
+Field	Type	Null	Key	Default	Extra
+set_id	int(11)	NO	PRI	NULL	auto_increment
+all_movie_ids	varchar(255)	YES		NULL	
+Field	Type	Null	Key	Default	Extra
+suggestion_id	int(11)	NO	PRI	NULL	auto_increment
+s_mov_id	int(11)	NO	MUL	NULL	
+suggested_mov	varchar(255)	YES		NULL	
+init_search	int(11)	NO	MUL	NULL	
+Field	Type	Null	Key	Default	Extra
+user_id	int(11)	NO	PRI	NULL	auto_increment
+user_login	varchar(255)	YES		NULL	
+user_pass	varchar(255)	YES		NULL	
